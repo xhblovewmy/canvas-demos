@@ -1,13 +1,13 @@
-const canvas = document.querySelector('#canvas')
-const winWidth = document.documentElement.clientWidth
-const winHeight = document.documentElement.clientHeight
+var canvas = document.getElementById('canvas')
+var winWidth = document.documentElement.clientWidth
+var winHeight = document.documentElement.clientHeight
 
 canvas.width = winWidth
 canvas.height = winHeight
 
-const context = canvas.getContext('2d')
+var context = canvas.getContext('2d')
 
-let particles = [] // 粒子集合
+var particles = [] // 粒子集合
 
 function renderScene () {
   window.requestAnimationFrame(renderScene)
