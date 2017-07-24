@@ -15,6 +15,12 @@ if (~navigator.userAgent.indexOf('Mobile')) {
   document.body.addEventListener('click', function (e) {
     particles.push(new Particle(e.clientX, e.clientY, Math.random() * 5 + 5))
   })
+  window.onresize = function () {
+    canvas.width = document.documentElement.offsetWidth
+    canvas.height = document.documentElement.offsetHeight
+    particles.width = canvas.width
+    particles.height = canvas.height
+  }
 }
 
 
