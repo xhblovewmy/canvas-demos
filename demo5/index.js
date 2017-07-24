@@ -7,10 +7,16 @@ function init () {
   particles = new Particles(canvas.width, canvas.height)
   requestAnimationFrame(draw)
 }
+if (~navigator.userAgent.indexOf('Mobile')) {
+  document.body.addEventListener('touchstart', function (e) {
+    particles.push(new Particle(e.touches[0].pageX, e.touches[0].pageY, Math.random() * 5 + 5))
+  })
+} else {
+  document.body.addEventListener('click', function (e) {
+    particles.push(new Particle(e.clientX, e.clientY, Math.random() * 5 + 5))
+  })
+}
 
-document.body.addEventListener('click', function (e) {
-  particles.push(new Particle(e.x, e.y, Math.random() * 5 + 5))
-})
 
 function draw () {
   // 1. 清除上一帧动画
